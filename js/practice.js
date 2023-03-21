@@ -110,18 +110,20 @@ const personalMovieDB = {
 
 
 function rememberMyFilms(){
-    for (let i = 0; i < 1; i++) {
-        const lastOfMovies = prompt('Какой последний фильм')
+    for (let i = 0; i < 2; i++) {
+        const lastOfMovies = prompt('Какой последний фильм').trim()
         const reviewOfMovies = +prompt('Review')
 
         if(lastOfMovies != null && reviewOfMovies != null && reviewOfMovies != '' && lastOfMovies.length < 50){
             personalMovieDB.movies[lastOfMovies] = reviewOfMovies
-
+            console.log('done')
         }else{
             i--;
+            console.log('error')
         }
     }
 }
+    console.log(personalMovieDB)
 
 rememberMyFilms()
 
@@ -148,9 +150,11 @@ showMyDB(personalMovieDB)
 
 
 
-function writeYourGenres(){
-    for (let i = 1; i <= 3; i++) {
-        personalMovieDB.genres[i - 1] = prompt(`Ваш любимый жанр по порядку${i}`)
+const genres = () =>{
+    for (let i = 1; i < 5; i++) {
+        personalMovieDB.genres[i - 1] = prompt(`Enter your favorite movies in order ${i}`)
     }
 }
-writeYourGenres()
+genres()
+
+
